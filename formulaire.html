@@ -9,16 +9,96 @@
 </head>
 <body class="bg-gray-50 font-sans flex flex-col min-h-screen">
 
-    <!-- En-tête avec bouton de retour -->
-    <header class="bg-gray-900 text-white p-4 shadow-md">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold text-blue-500">ConfigGamer</h1>
-            <!-- Lien pour revenir à la page principale (index.html) -->
-            <a href="princ.html" class="text-sm bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded transition">
-                &larr; Retour à l'accueil
+    <!-- Navbar Principale -->
+<header class="bg-gray-900 text-white sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 gap-4">
+            
+            <!-- 1. Logo / Marque -->
+            <div class="flex-shrink-0 flex items-center gap-2">
+                <a href="index.html" class="text-2xl font-black text-blue-500 tracking-wide flex items-center gap-1">
+                    <svg class="w-7 h-7 text-blue-500 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                    </svg>
+                    ConfigGamer
+                </a>
+            </div>
+
+            <!-- 2. Barre de recherche (Bureau) -->
+            <div class="hidden md:flex flex-1 max-w-md mx-4">
+                <form action="#" method="GET" class="w-full relative" onsubmit="event.preventDefault(); alert('Recherche lancée !');">
+                    <input 
+                        type="text" 
+                        name="q" 
+                        placeholder="Rechercher un composant (ex: RTX 4070, Ryzen 7...)" 
+                        class="w-full bg-gray-800 text-sm text-gray-200 placeholder-gray-400 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-blue-500 border border-gray-700 transition"
+                    >
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 3. Liens de Navigation & Panier (Bureau) -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-gray-300 hover:text-white font-medium text-sm transition">
+                    Accueil
+                </a>
+                <a href="configurateur.html" class="bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm px-4 py-2 rounded-lg transition shadow-md">
+                    🔧 Configurateur PC
+                </a>
+                
+                <!-- Bouton Panier -->
+                <button onclick="toggleCartDrawer()" class="relative flex items-center gap-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 text-white px-3 py-2 rounded-lg transition">
+                    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/>
+                    </svg>
+                    <span class="text-sm font-semibold">Panier</span>
+                    <span id="cartBadge" class="bg-blue-600 text-xs font-bold px-2 py-0.5 rounded-full text-white">0</span>
+                </button>
+            </div>
+
+            <!-- 4. Bouton Menu Mobile (Burgermenu) -->
+            <div class="flex items-center gap-2 md:hidden">
+                <!-- Panier mobile rapide -->
+                <button onclick="toggleCartDrawer()" class="relative p-2 text-gray-300 hover:text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z"/>
+                    </svg>
+                    <span class="absolute top-1 right-1 bg-blue-600 text-[10px] font-bold px-1.5 py-0.2 rounded-full text-white">0</span>
+                </button>
+
+                <button id="mobileMenuBtn" class="p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Barre de recherche sur mobile -->
+        <div class="md:hidden pb-3 pt-1">
+            <input 
+                type="text" 
+                placeholder="Rechercher un composant..." 
+                class="w-full bg-gray-800 text-sm text-gray-200 placeholder-gray-400 rounded-lg py-2 pl-9 pr-4 focus:outline-none border border-gray-700"
+            >
+        </div>
+
+        <!-- Menu déroulant mobile -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-gray-800 py-3 space-y-2">
+            <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-800">
+                Accueil
+            </a>
+            <a href="configurateur.html" class="block px-3 py-2 rounded-md text-base font-medium bg-blue-600 text-white hover:bg-blue-500">
+                🔧 Configurateur PC
             </a>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Contenu principal (Le formulaire) -->
     <main class="flex-grow container mx-auto px-4 py-12">
