@@ -57,5 +57,39 @@
             alert(`${productName} ajouté au panier !`);
         }
     </script>
+
+    <!-- Formulaire de demande de montage personnalisé -->
+<section class="max-w-3xl mx-auto bg-white p-8 mt-12 rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold mb-6">Demander un montage sur mesure</h2>
+    
+    <!-- Remplacez VOTRE_CODE_FORMSPREE par celui fourni par Formspree -->
+    <form action="https://formspree.io/f/VOTRE_CODE_FORMSPREE" method="POST" class="space-y-4">
+        
+        <div>
+            <label class="block text-gray-700 font-bold mb-2">Votre Email</label>
+            <input type="email" name="email" required class="w-full border p-2 rounded">
+        </div>
+
+        <div>
+            <label class="block text-gray-700 font-bold mb-2">Budget approximatif (€)</label>
+            <input type="number" name="budget" required class="w-full border p-2 rounded">
+        </div>
+
+        <div>
+            <label class="block text-gray-700 font-bold mb-2">Composants souhaités (Votre Panier actuel)</label>
+            <!-- Ce champ textarea pourra être rempli automatiquement par le JavaScript du panier -->
+            <textarea name="composants" id="composantsInput" rows="5" class="w-full border p-2 rounded" placeholder="Ex: RTX 4070, Ryzen 7 7800X3D..."></textarea>
+        </div>
+        
+        <div>
+            <label class="block text-gray-700 font-bold mb-2">Besoins spécifiques (Esthétique, silence, etc.)</label>
+            <textarea name="message" rows="3" class="w-full border p-2 rounded"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded hover:bg-blue-500">
+            Envoyer ma demande de montage
+        </button>
+    </form>
+</section>
 </body>
 </html>
