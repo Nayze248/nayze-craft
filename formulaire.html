@@ -3,95 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConfigGamer | Les meilleurs prix</title>
-    <!-- Utilisation de Tailwind CSS pour un design rapide et moderne -->
+    <title>Créer ma configuration sur mesure | ConfigGamer</title>
+    <!-- Chargement de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
+<body class="bg-gray-50 font-sans flex flex-col min-h-screen">
 
-<section class="max-w-3xl mx-auto bg-white p-8 mt-12 rounded-lg shadow-md border border-gray-200">
-    <h2 class="text-2xl font-bold mb-6 text-gray-800">Demander un montage sur mesure</h2>
-    
-    <!-- Remplacez VOTRE_CODE_FORMSPREE par celui fourni par Formspree -->
-    <form action="https://formspree.io/f/VOTRE_CODE_FORMSPREE" method="POST" class="space-y-6">
+    <!-- En-tête avec bouton de retour -->
+    <header class="bg-gray-900 text-white p-4 shadow-md">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-500">ConfigGamer</h1>
+            <!-- Lien pour revenir à la page principale (index.html) -->
+            <a href="index.html" class="text-sm bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded transition">
+                &larr; Retour à l'accueil
+            </a>
+        </div>
+    </header>
+
+    <!-- Contenu principal (Le formulaire) -->
+    <main class="flex-grow container mx-auto px-4 py-12">
         
-        <!-- Informations client -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-                <label class="block text-gray-700 font-bold mb-2">Votre Email *</label>
-                <input type="email" name="email" required class="w-full border border-gray-300 p-2 rounded focus:ring-blue-500 focus:border-blue-500">
+        <div class="max-w-4xl mx-auto bg-white p-8 md:p-10 rounded-xl shadow-lg border border-gray-200">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">Monteur PC sur mesure</h2>
+                <p class="text-gray-500 mt-2">Sélectionnez vos composants, je m'occupe du montage et de l'expédition.</p>
             </div>
-            <div>
-                <label class="block text-gray-700 font-bold mb-2">Budget maximum (€)</label>
-                <input type="number" name="budget" placeholder="Ex: 1500" class="w-full border border-gray-300 p-2 rounded focus:ring-blue-500 focus:border-blue-500">
-            </div>
+            
+            <!-- Remplacez VOTRE_CODE_FORMSPREE par votre identifiant Formspree -->
+            <form action="https://formspree.io/f/VOTRE_CODE_FORMSPREE" method="POST" class="space-y-8">
+                
+                <!-- Section 1 : Informations client -->
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-100">
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4">Vos coordonnées</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Votre Email *</label>
+                            <input type="email" name="email" required class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Budget maximum (€)</label>
+                            <input type="number" name="budget" placeholder="Ex: 1500" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2 : Les composants -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4 border-b pb-2">Choix du matériel</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <!-- Processeur -->
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Processeur (CPU)</label>
+                            <select name="Processeur" class="w-full border border-gray-300 p-3 rounded bg-white cursor-pointer focus:ring-2 focus:ring-blue-500 outline-none">
+                                <option value="Non renseigné">-- Choisir un processeur --</option>
+                                <option value="AMD Ryzen 5 7600">AMD Ryzen 5 7600</option>
+                                <option value="AMD Ryzen 7 7800X3D">AMD Ryzen 7 7800X3D</option>
+                                <option value="Intel Core i5-13600K">Intel Core i5-13600K</option>
+                                <option value="Intel Core i7-14700K">Intel Core i7-14700K</option>
+                            </select>
+                        </div>
+
+                        <!-- Carte Graphique -->
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Carte Graphique (GPU)</label>
+                            <select name="Carte_Graphique" class="w-full border border-gray-300 p-3 rounded bg-white cursor-pointer focus:ring-2 focus:ring-blue-500 outline-none">
+                                <option value="Non renseigné">-- Choisir une carte graphique --</option>
+                                <option value="NVIDIA RTX 4060">NVIDIA RTX 4060</option>
+                                <option value="NVIDIA RTX 4070 Super">NVIDIA RTX 4070 Super</option>
+                                <option value="AMD Radeon RX 7700 XT">AMD Radeon RX 7700 XT</option>
+                                <option value="AMD Radeon RX 7900 XTX">AMD Radeon RX 7900 XTX</option>
+                                <option value="Sans (Bureautique)">Sans (Bureautique)</option>
+                            </select>
+                        </div>
+
+                        <!-- Carte Mère (Nouvel ajout) -->
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Carte Mère</label>
+                            <select name="Carte_Mere" class="w-full border border-gray-300 p-3 rounded bg-white cursor-pointer focus:ring-2 focus:ring-blue-500 outline-none">
+                                <option value="Non renseigné">-- Laissez-moi vous conseiller --</option>
+                                <option value="B650 (Idéal AMD)">B650 (Idéal AMD Ryzen)</option>
+                                <option value="Z790 (Haut de gamme Intel)">Z790 (Haut de gamme Intel)</option>
+                            </select>
+                        </div>
+
+                        <!-- Mémoire RAM -->
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Mémoire Vive (RAM)</label>
+                            <select name="RAM" class="w-full border border-gray-300 p-3 rounded bg-white cursor-pointer focus:ring-2 focus:ring-blue-500 outline-none">
+                                <option value="Non renseigné">-- Choisir la RAM --</option>
+                                <option value="16 Go DDR4">16 Go DDR4</option>
+                                <option value="32 Go DDR4">32 Go DDR4</option>
+                                <option value="32 Go DDR5">32 Go DDR5</option>
+                            </select>
+                        </div>
+
+                        <!-- Stockage -->
+                        <div class="md:col-span-2">
+                            <label class="block text-gray-700 font-medium mb-2">Stockage Principal (SSD NVMe)</label>
+                            <select name="Stockage" class="w-full border border-gray-300 p-3 rounded bg-white cursor-pointer focus:ring-2 focus:ring-blue-500 outline-none">
+                                <option value="Non renseigné">-- Choisir le stockage --</option>
+                                <option value="500 Go">500 Go</option>
+                                <option value="1 To">1 To</option>
+                                <option value="2 To">2 To</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3 : Détails esthétiques et commentaires -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-700 mb-4 border-b pb-2">Personnalisation</h3>
+                    <label class="block text-gray-700 font-medium mb-2">Demandes spécifiques (Boîtier, RGB, silence, watercooling...)</label>
+                    <textarea name="Commentaires" rows="4" class="w-full border border-gray-300 p-3 rounded focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="Ex: Je voudrais un boîtier blanc type NZXT H5 avec beaucoup de lumières RGB..."></textarea>
+                </div>
+
+                <!-- Bouton de soumission -->
+                <button type="submit" class="w-full bg-blue-600 text-white text-lg font-bold py-4 rounded-lg hover:bg-blue-500 shadow-lg hover:shadow-xl transition duration-200 transform hover:-translate-y-1">
+                    Envoyer ma demande de configuration
+                </button>
+            </form>
         </div>
+    </main>
 
-        <hr class="my-6 border-gray-200">
-        <h3 class="text-xl font-semibold text-gray-800 mb-4">Choisissez vos composants</h3>
+    <!-- Pied de page -->
+    <footer class="bg-gray-900 text-gray-400 text-center py-6 mt-auto">
+        <p>&copy; 2026 ConfigGamer. Tous droits réservés.</p>
+    </footer>
 
-        <!-- Liste des composants -->
-        <div class="space-y-4">
-            <!-- Processeur -->
-            <div>
-                <label class="block text-gray-700 font-bold mb-2">Processeur (CPU)</label>
-                <select name="Processeur" class="w-full border border-gray-300 p-2 rounded bg-white cursor-pointer">
-                    <option value="Non renseigné">-- Choisir un processeur --</option>
-                    <option value="AMD Ryzen 5 7600">AMD Ryzen 5 7600</option>
-                    <option value="AMD Ryzen 7 7800X3D">AMD Ryzen 7 7800X3D</option>
-                    <option value="Intel Core i5-13600K">Intel Core i5-13600K</option>
-                    <option value="Intel Core i7-14700K">Intel Core i7-14700K</option>
-                    <option value="Autre (à préciser en commentaire)">Autre (à préciser)</option>
-                </select>
-            </div>
-
-            <!-- Carte Graphique -->
-            <div>
-                <label class="block text-gray-700 font-bold mb-2">Carte Graphique (GPU)</label>
-                <select name="Carte Graphique" class="w-full border border-gray-300 p-2 rounded bg-white cursor-pointer">
-                    <option value="Non renseigné">-- Choisir une carte graphique --</option>
-                    <option value="NVIDIA RTX 4060">NVIDIA RTX 4060</option>
-                    <option value="NVIDIA RTX 4070 Super">NVIDIA RTX 4070 Super</option>
-                    <option value="AMD Radeon RX 7700 XT">AMD Radeon RX 7700 XT</option>
-                    <option value="AMD Radeon RX 7900 XTX">AMD Radeon RX 7900 XTX</option>
-                    <option value="Sans carte graphique (Bureautique)">Sans carte graphique</option>
-                </select>
-            </div>
-
-            <!-- Mémoire RAM -->
-            <div>
-                <label class="block text-gray-700 font-bold mb-2">Mémoire Vive (RAM)</label>
-                <select name="RAM" class="w-full border border-gray-300 p-2 rounded bg-white cursor-pointer">
-                    <option value="Non renseigné">-- Choisir la RAM --</option>
-                    <option value="16 Go (2x8) DDR4">16 Go (2x8) DDR4</option>
-                    <option value="32 Go (2x16) DDR4">32 Go (2x16) DDR4</option>
-                    <option value="32 Go (2x16) DDR5">32 Go (2x16) DDR5</option>
-                    <option value="64 Go (2x32) DDR5">64 Go (2x32) DDR5</option>
-                </select>
-            </div>
-
-            <!-- Stockage -->
-            <div>
-                <label class="block text-gray-700 font-bold mb-2">Stockage Principal (SSD)</label>
-                <select name="Stockage" class="w-full border border-gray-300 p-2 rounded bg-white cursor-pointer">
-                    <option value="Non renseigné">-- Choisir le stockage --</option>
-                    <option value="SSD NVMe 500 Go">SSD NVMe 500 Go</option>
-                    <option value="SSD NVMe 1 To">SSD NVMe 1 To</option>
-                    <option value="SSD NVMe 2 To">SSD NVMe 2 To</option>
-                </select>
-            </div>
-        </div>
-
-        <hr class="my-6 border-gray-200">
-
-        <!-- Commentaires supplémentaires -->
-        <div>
-            <label class="block text-gray-700 font-bold mb-2">Demandes spécifiques (Boîtier, RGB, silence...)</label>
-            <textarea name="Commentaires" rows="3" class="w-full border border-gray-300 p-2 rounded focus:ring-blue-500 focus:border-blue-500" placeholder="Ex: Je voudrais un boîtier blanc avec beaucoup de lumières RGB..."></textarea>
-        </div>
-
-        <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded hover:bg-blue-500 transition duration-200">
-            Envoyer ma configuration pour montage
-        </button>
-    </form>
-</section>
+</body>
 </html>
