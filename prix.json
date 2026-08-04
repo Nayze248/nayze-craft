@@ -1,0 +1,16 @@
+{
+  "rtx_4070_super": {
+    "name": "NVIDIA GeForce RTX 4070 Super",
+    "best_price": 599.90,
+    "merchant": "TopAchat",
+    "affiliate_url": "https://www.awin1.com/cread.php?awinmid=XXXX&awinaffid=VOTRE_ID&clickref=&ued=https://www.topachat.com/pages/detail2_cat_est_micro_puis_rubrique_est_wgfx_pcie_puis_ref_est_in200234.html",
+    "history_low": 589.00
+  },
+  "ryzen_7800x3d": {
+    "name": "AMD Ryzen 7 7800X3D",
+    "best_price": 369.00,
+    "merchant": "Amazon",
+    "affiliate_url": "https://www.amazon.fr/dp/B0BTZB7F88?tag=VOTRE_TAG-21",
+    "history_low": 355.00
+  }
+}

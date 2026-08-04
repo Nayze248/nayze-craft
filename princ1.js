@@ -64,3 +64,37 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+// Charger dynamiquement les prix affiliés au chargement de la page
+async function loadAffiliatePrices() {
+    try {
+        const response = await fetch('prices.json');
+        const data = await response.json();
+
+        // Exemple pour la RTX 4070 Super
+        if (data.rtx_4070_super) {
+            const item = data.rtx_4070_super;
+            
+            // Mise à jour de l'affichage du prix
+            const priceElement = document.getElementById('rtx4070-price');
+            if (priceElement) priceElement.innerText = `${item.best_price.toFixed(2)} €`;
+
+            // Mise à jour du nom du marchand le moins cher
+            const merchantElement = document.getElementById('rtx4070-merchant');
+            if (merchantElement) merchantElement.innerText = `Meilleur prix sur ${item.merchant}`;
+
+            // Redirection vers le lien d'affiliation lors du clic
+            const buyBtn = document.getElementById('rtx4070-buy-btn');
+            if (buyBtn) {
+                buyBtn.onclick = () => window.open(item.affiliate_url, '_blank');
+            }
+        }
+    } catch (error) {
+        console.error("Erreur de chargement des prix :", error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadAffiliatePrices();
+});
