@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <button onclick="clearCart()" class="text-sm text-gray-500 hover:text-red-600 underline">
                         Vider tout le panier
                     </button>
-                    <a href="index.html" class="text-sm text-blue-600 hover:underline">
+                    <a href="princ.html" class="text-sm text-blue-600 hover:underline">
                         + Ajouter d'autres composants
                     </a>
                 </div>
