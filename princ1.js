@@ -1,100 +1,91 @@
-// Attendre le chargement complet de la page HTML
-document.addEventListener('DOMContentLoaded', () => {
-
-    // --- 1. GESTION DU MENU MOBILE ---
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    }
-
-    // --- 2. GESTION DU PANIER ET LOCALSTORAGE ---
-    // Charger le panier depuis la mémoire du navigateur (localStorage)
-    window.cart = JSON.parse(localStorage.getItem('configGamerCart')) || [];
-    
-    // Mettre à jour l'affichage du panier au chargement
-    updateCartUI();
-
-    // Fonction d'ajout au panier
-    window.addToCart = function(productName, price) {
-        window.cart.push({ name: productName, price: price });
-        saveCart();
-        updateCartUI();
-        alert(`${productName} (${price} €) a été ajouté à votre panier !`);
-    };
-
-    // Fonction de réinitialisation/vidage du panier
-    window.clearCart = function() {
-        if (confirm("Voulez-vous vraiment vider votre panier ?")) {
-            window.cart = [];
-            saveCart();
-            updateCartUI();
-        }
-    };
-
-    // Affichage des éléments du panier
-    window.toggleCartDrawer = function() {
-        if (window.cart.length === 0) {
-            alert("Votre panier est actuellement vide.");
-        } else {
-            let total = 0;
-            let summary = "--- VOTRE PANIER ---\n\n";
-            window.cart.forEach((item, index) => {
-                summary += `${index + 1}. ${item.name} - ${item.price} €\n`;
-                total += parseFloat(item.price);
-            });
-            summary += `\nTOTAL : ${total.toFixed(2)} €`;
-            alert(summary);
-        }
-    };
-
-    // Fonction interne pour sauvegarder dans le navigateur
-    function saveCart() {
-        localStorage.setItem('configGamerCart', JSON.stringify(window.cart));
-    }
-
-    // Fonction interne pour mettre à jour les compteurs du panier
-    function updateCartUI() {
-        const badges = document.querySelectorAll('#cartBadge, .cart-count-mobile');
-        badges.forEach(badge => {
-            badge.innerText = window.cart.length;
-        });
-    }
-});
-
-
-// Charger dynamiquement les prix affiliés au chargement de la page
-async function loadAffiliatePrices() {
-    try {
-        const response = await fetch('prices.json');
-        const data = await response.json();
-
-        // Exemple pour la RTX 4070 Super
-        if (data.rtx_4070_super) {
-            const item = data.rtx_4070_super;
-            
-            // Mise à jour de l'affichage du prix
-            const priceElement = document.getElementById('rtx4070-price');
-            if (priceElement) priceElement.innerText = `${item.best_price.toFixed(2)} €`;
-
-            // Mise à jour du nom du marchand le moins cher
-            const merchantElement = document.getElementById('rtx4070-merchant');
-            if (merchantElement) merchantElement.innerText = `Meilleur prix sur ${item.merchant}`;
-
-            // Redirection vers le lien d'affiliation lors du clic
-            const buyBtn = document.getElementById('rtx4070-buy-btn');
-            if (buyBtn) {
-                buyBtn.onclick = () => window.open(item.affiliate_url, '_blank');
-            }
-        }
-    } catch (error) {
-        console.error("Erreur de chargement des prix :", error);
-    }
+// --- 1. METTRE À JOUR LE COMPTEUR (Badge) ---
+function updateBadge() {
+    let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+    const badges = document.querySelectorAll('#cartBadge');
+    badges.forEach(badge => {
+        badge.innerText = cart.length;
+    });
 }
 
+// --- 2. AJOUTER UN PRODUIT (Utilisé sur index.html) ---
+window.addToCart = function(productName, price) {
+    let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+    cart.push({ name: productName, price: parseFloat(price) });
+    localStorage.setItem('myCart', JSON.stringify(cart));
+    
+    updateBadge();
+    alert(`✅ ${productName} a été ajouté au panier !`);
+};
+
+// --- 3. AFFICHER LE PANIER (Utilisé sur panier.html) ---
+function renderCartPage() {
+    const container = document.getElementById('cartPageContainer');
+    if (!container) return; // Sécurité si on n'est pas sur la page panier
+
+    let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+
+    if (cart.length === 0) {
+        container.innerHTML = `
+            <div class="text-center py-12 bg-white rounded-xl shadow-md p-8 col-span-3">
+                <p class="text-5xl mb-4">🛒</p>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Votre panier est vide</h3>
+                <a href="index.html" class="inline-block mt-4 bg-blue-600 text-white font-bold px-6 py-3 rounded-lg">
+                    Retourner aux offres
+                </a>
+            </div>
+        `;
+        return;
+    }
+
+    let total = 0;
+    let htmlContent = '<div class="lg:col-span-2 space-y-4">';
+
+    cart.forEach((item, index) => {
+        total += item.price;
+        htmlContent += `
+            <div class="bg-white p-5 rounded-xl shadow-sm border flex justify-between items-center">
+                <div>
+                    <h4 class="font-bold text-lg text-gray-800">${item.name}</h4>
+                    <p class="text-green-600 font-bold mt-1">${item.price.toFixed(2)} €</p>
+                </div>
+                <button onclick="removeFromCart(${index})" class="bg-red-50 text-red-500 hover:bg-red-100 px-3 py-1.5 rounded-lg font-semibold text-sm">
+                    Supprimer
+                </button>
+            </div>
+        `;
+    });
+
+    htmlContent += `</div>`;
+
+    // Bloc récapitulatif du total
+    htmlContent += `
+        <div class="bg-white p-6 rounded-xl shadow-md border h-fit space-y-6">
+            <h3 class="text-xl font-bold text-gray-800 border-b pb-3">Récapitulatif</h3>
+            <div class="flex justify-between text-lg font-bold text-gray-800">
+                <span>Total</span>
+                <span class="text-green-600">${total.toFixed(2)} €</span>
+            </div>
+            <a href="configurateur.html" class="block text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-lg shadow-md">
+                Commander le montage →
+            </a>
+        </div>
+    `;
+
+    container.innerHTML = htmlContent;
+}
+
+// --- 4. SUPPRIMER UN PRODUIT ---
+window.removeFromCart = function(index) {
+    let cart = JSON.parse(localStorage.getItem('myCart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('myCart', JSON.stringify(cart));
+    
+    updateBadge();
+    renderCartPage();
+};
+
+// --- EXécution AUTOMATIQUE AU CHARGEMENT ---
 document.addEventListener('DOMContentLoaded', () => {
-    loadAffiliatePrices();
+    updateBadge();
+    renderCartPage();
 });
