@@ -58,34 +58,80 @@
     </header>
 
     <!-- Contenu Principal -->
-    <main class="max-w-7xl mx-auto px-4 py-8 flex-grow">
-        <h2 class="text-3xl font-extrabold text-gray-800 mb-6">🔥 Les Meilleures Offres Composants</h2>
+    <main class="max-w-7xl mx-auto px-4 py-8 flex-grow space-y-12">
 
-        <!-- Grille de Produits -->
+    <!-- ==================== LIGNE 1 : CARTES MÈRES ==================== -->
+    <section>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+            🖥️ Cartes Mères
+        </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <!-- Carte Produit 1 -->
+            <!-- Produit 1 -->
             <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
                 <div>
-                    <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-1 rounded">-12% Meilleur prix</span>
-                    <h3 class="text-xl font-bold mt-2">NVIDIA GeForce RTX 4070 Super</h3>
-                    <p class="text-sm text-gray-500 mt-1">Comparé sur 4 sites (LDLC, TopAchat, Amazon)</p>
+                    <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-1 rounded inline-block">-15% Meilleur prix</span>
+                    <h3 class="text-xl font-bold mt-2">MSI B650 Gaming Plus WiFi</h3>
+                    <p class="text-sm text-gray-500 mt-1">Socket AM5, DDR5, PCIe 4.0</p>
                 </div>
                 <div class="mt-6 flex justify-between items-center">
                     <div>
-                        <p class="text-xs text-gray-400 line-through">679,00 €</p>
-                        <p class="text-2xl font-bold text-green-600">599,90 €</p>
+                        <p class="text-xs text-gray-400 line-through">199,90 €</p>
+                        <p class="text-2xl font-bold text-green-600">169,90 €</p>
                     </div>
-                    <button onclick="addToCart('NVIDIA RTX 4070 Super', 599.90)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                    <button onclick="addToCart('MSI B650 Gaming Plus WiFi', 169.90)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
                         Ajouter
                     </button>
                 </div>
             </div>
 
-            <!-- Carte Produit 2 -->
+            <!-- Produit 2 -->
             <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
                 <div>
-                    <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-1 rounded">-18% Offre Vedette</span>
+                    <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2.5 py-1 rounded inline-block">Top Ventes</span>
+                    <h3 class="text-xl font-bold mt-2">ASUS ROG Strix B760-F Gaming</h3>
+                    <p class="text-sm text-gray-500 mt-1">Socket LGA 1700, DDR5, ATX</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 line-through">249,00 €</p>
+                        <p class="text-2xl font-bold text-green-600">219,00 €</p>
+                    </div>
+                    <button onclick="addToCart('ASUS ROG Strix B760-F', 219.00)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produit 3 -->
+            <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                <div>
+                    <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-1 rounded inline-block">-10% Promo</span>
+                    <h3 class="text-xl font-bold mt-2">Gigabyte X670 AORUS ELITE</h3>
+                    <p class="text-sm text-gray-500 mt-1">Haut de gamme AMD, PCIe 5.0</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 line-through">299,00 €</p>
+                        <p class="text-2xl font-bold text-green-600">269,90 €</p>
+                    </div>
+                    <button onclick="addToCart('Gigabyte X670 AORUS ELITE', 269.90)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LIGNE 2 : PROCESSEURS ==================== -->
+    <section>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+            ⚡ Processeurs
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Produit 1 -->
+            <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                <div>
+                    <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-1 rounded inline-block">-18% Offre Vedette</span>
                     <h3 class="text-xl font-bold mt-2">AMD Ryzen 7 7800X3D</h3>
                     <p class="text-sm text-gray-500 mt-1">Le meilleur processeur gaming</p>
                 </div>
@@ -100,10 +146,54 @@
                 </div>
             </div>
 
-            <!-- Carte Produit 3 -->
+            <!-- Produit 2 -->
             <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
                 <div>
-                    <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2.5 py-1 rounded">Stock limité</span>
+                    <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-1 rounded inline-block">-14% Promo</span>
+                    <h3 class="text-xl font-bold mt-2">Intel Core i5-13600KF</h3>
+                    <p class="text-sm text-gray-500 mt-1">14 Cœurs / 20 Threads jusqu'à 5.1 GHz</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 line-through">329,00 €</p>
+                        <p class="text-2xl font-bold text-green-600">283,50 €</p>
+                    </div>
+                    <button onclick="addToCart('Intel Core i5-13600KF', 283.50)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produit 3 -->
+            <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                <div>
+                    <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2.5 py-1 rounded inline-block">Rapport Q/P</span>
+                    <h3 class="text-xl font-bold mt-2">AMD Ryzen 5 7600X</h3>
+                    <p class="text-sm text-gray-500 mt-1">6 Cœurs / 12 Threads jusqu'à 5.3 GHz</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 line-through">239,00 €</p>
+                        <p class="text-2xl font-bold text-green-600">209,00 €</p>
+                    </div>
+                    <button onclick="addToCart('AMD Ryzen 5 7600X', 209.00)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LIGNE 3 : MÉMOIRE RAM ==================== -->
+    <section>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+            🧠 Mémoires RAM
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Produit 1 -->
+            <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                <div>
+                    <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2.5 py-1 rounded inline-block">Stock limité</span>
                     <h3 class="text-xl font-bold mt-2">Corsair Vengeance DDR5 32GB</h3>
                     <p class="text-sm text-gray-500 mt-1">6000 MHz CL30 (2x16 Go)</p>
                 </div>
@@ -118,8 +208,231 @@
                 </div>
             </div>
 
+            <!-- Produit 2 -->
+            <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                <div>
+                    <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-1 rounded inline-block">-20% Promo</span>
+                    <h3 class="text-xl font-bold mt-2">G.Skill Trident Z5 RGB 32GB</h3>
+                    <p class="text-sm text-gray-500 mt-1">DDR5 6400 MHz CL32 (2x16 Go)</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 line-through">164,90 €</p>
+                        <p class="text-2xl font-bold text-green-600">129,90 €</p>
+                    </div>
+                    <button onclick="addToCart('G.Skill Trident Z5 32GB', 129.90)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produit 3 -->
+            <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                <div>
+                    <span class="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded inline-block">Petit Prix</span>
+                    <h3 class="text-xl font-bold mt-2">Kingston Fury Beast 16GB</h3>
+                    <p class="text-sm text-gray-500 mt-1">DDR4 3200 MHz CL16 (2x8 Go)</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 line-through">54,90 €</p>
+                        <p class="text-2xl font-bold text-green-600">42,90 €</p>
+                    </div>
+                    <button onclick="addToCart('Kingston Fury 16GB DDR4', 42.90)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
         </div>
-    </main>
+    </section>
+
+    <!-- ==================== LIGNE 4 : CARTES GRAPHIQUES ==================== -->
+    <section>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+            🎮 Cartes Graphiques
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Produit 1 -->
+            <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                <div>
+                    <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-1 rounded inline-block">-12% Meilleur prix</span>
+                    <h3 class="text-xl font-bold mt-2">NVIDIA GeForce RTX 4070 Super</h3>
+                    <p class="text-sm text-gray-500 mt-1">Comparé sur 4 sites (LDLC, TopAchat...)</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 line-through">679,00 €</p>
+                        <p class="text-2xl font-bold text-green-600">599,90 €</p>
+                    </div>
+                    <button onclick="addToCart('NVIDIA RTX 4070 Super', 599.90)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produit 2 -->
+            <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                <div>
+                    <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-1 rounded inline-block">-15% Promo</span>
+                    <h3 class="text-xl font-bold mt-2">AMD Radeon RX 7800 XT</h3>
+                    <p class="text-sm text-gray-500 mt-1">16 Go GDDR6 - Idéal 1440p</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 line-through">579,00 €</p>
+                        <p class="text-2xl font-bold text-green-600">499,00 €</p>
+                    </div>
+                    <button onclick="addToCart('AMD Radeon RX 7800 XT', 499.00)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produit 3 -->
+            <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                <div>
+                    <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2.5 py-1 rounded inline-block">Entrée de gamme</span>
+                    <h3 class="text-xl font-bold mt-2">NVIDIA GeForce RTX 4060</h3>
+                    <p class="text-sm text-gray-500 mt-1">8 Go GDDR6 - Gaming 1080p</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 line-through">329,90 €</p>
+                        <p class="text-2xl font-bold text-green-600">289,90 €</p>
+                    </div>
+                    <button onclick="addToCart('NVIDIA RTX 4060', 289.90)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LIGNE 5 : ALIMENTATIONS ==================== -->
+    <section>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+            🔌 Alimentations
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Produit 1 -->
+            <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                <div>
+                    <span class="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded inline-block">Gold Modulaire</span>
+                    <h3 class="text-xl font-bold mt-2">Corsair RM750e (750W)</h3>
+                    <p class="text-sm text-gray-500 mt-1">80 PLUS Gold, ATX 3.0</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 line-through">124,90 €</p>
+                        <p class="text-2xl font-bold text-green-600">99,90 €</p>
+                    </div>
+                    <button onclick="addToCart('Corsair RM750e 750W', 99.90)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produit 2 -->
+            <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                <div>
+                    <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-1 rounded inline-block">-18% Promo</span>
+                    <h3 class="text-xl font-bold mt-2">MSI MAG A850GL (850W)</h3>
+                    <p class="text-sm text-gray-500 mt-1">80 PLUS Gold, PCIe 5.0 prêt</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 line-through">139,00 €</p>
+                        <p class="text-2xl font-bold text-green-600">114,00 €</p>
+                    </div>
+                    <button onclick="addToCart('MSI MAG A850GL 850W', 114.00)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produit 3 -->
+            <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                <div>
+                    <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2.5 py-1 rounded inline-block">Budget</span>
+                    <h3 class="text-xl font-bold mt-2">be quiet! System Power 10 (600W)</h3>
+                    <p class="text-sm text-gray-500 mt-1">80 PLUS Bronze, Silencieuse</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 line-through">69,90 €</p>
+                        <p class="text-2xl font-bold text-green-600">58,90 €</p>
+                    </div>
+                    <button onclick="addToCart('be quiet! 600W', 58.90)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LIGNE 6 : BOÎTIERS PC ==================== -->
+    <section>
+        <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+            📦 Boîtiers PC
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Produit 1 -->
+            <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                <div>
+                    <span class="bg-red-100 text-red-700 text-xs font-bold px-2.5 py-1 rounded inline-block">-15% Populaire</span>
+                    <h3 class="text-xl font-bold mt-2">NZXT H5 Flow Black</h3>
+                    <p class="text-sm text-gray-500 mt-1">Moyen Tour, Flux d'air optimisé</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 line-through">104,90 €</p>
+                        <p class="text-2xl font-bold text-green-600">88,90 €</p>
+                    </div>
+                    <button onclick="addToCart('NZXT H5 Flow', 88.90)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produit 2 -->
+            <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                <div>
+                    <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2.5 py-1 rounded inline-block">RGB Inclus</span>
+                    <h3 class="text-xl font-bold mt-2">Corsair 4000D Airflow</h3>
+                    <p class="text-sm text-gray-500 mt-1">Moyen Tour, Façade en mesh</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 line-through">119,00 €</p>
+                        <p class="text-2xl font-bold text-green-600">94,90 €</p>
+                    </div>
+                    <button onclick="addToCart('Corsair 4000D Airflow', 94.90)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+
+            <!-- Produit 3 -->
+            <div class="bg-white p-5 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between">
+                <div>
+                    <span class="bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded inline-block">Panoramique</span>
+                    <h3 class="text-xl font-bold mt-2">Lian Li O11 Dynamic EVO</h3>
+                    <p class="text-sm text-gray-500 mt-1">Grand Tour, Double chambre verre trempé</p>
+                </div>
+                <div class="mt-6 flex justify-between items-center">
+                    <div>
+                        <p class="text-xs text-gray-400 line-through">179,90 €</p>
+                        <p class="text-2xl font-bold text-green-600">159,90 €</p>
+                    </div>
+                    <button onclick="addToCart('Lian Li O11 Dynamic', 159.90)" class="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded-lg transition">
+                        Ajouter
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 text-center py-6 mt-auto">
