@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="text-5xl mb-4">🛒</p>
                 <h3 class="text-2xl font-bold text-gray-800 mb-2">Votre panier est vide</h3>
                 <p class="text-gray-500 mb-6">Vous n'avez pas encore ajouté de composants à votre sélection.</p>
-                <a href="index.html" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-lg transition">
+                <a href="princ.html" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold px-6 py-3 rounded-lg transition">
                     Découvrir les offres composants
                 </a>
             `;
