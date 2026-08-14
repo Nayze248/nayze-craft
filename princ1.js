@@ -29,7 +29,7 @@ function renderCartPage() {
             <div class="text-center py-12 bg-white rounded-xl shadow-md p-8 col-span-3">
                 <p class="text-5xl mb-4">🛒</p>
                 <h3 class="text-2xl font-bold text-gray-800 mb-2">Votre panier est vide</h3>
-                <a href="index.html" class="inline-block mt-4 bg-blue-600 text-white font-bold px-6 py-3 rounded-lg">
+                <a href="princ.html" class="inline-block mt-4 bg-blue-600 text-white font-bold px-6 py-3 rounded-lg">
                     Retourner aux offres
                 </a>
             </div>
